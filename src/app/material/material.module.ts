@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 
 import {
   MatButtonModule,
@@ -10,7 +10,7 @@ import {
   MatFormFieldModule,
   MatCheckboxModule,
   MatInputModule
-} from "@angular/material";
+} from '@angular/material';
 
 @NgModule({
   imports: [

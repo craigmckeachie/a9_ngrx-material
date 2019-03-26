@@ -1,10 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ProjectService } from "./shared/project.service";
-import { Observable } from "rxjs";
-import { Project } from "./shared/project.model";
-import { Store } from "@ngrx/store";
-import { AppState } from "../shared/app.state";
-import { ProjectState } from "./shared/project.state";
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Project } from './shared/project.model';
+import { Store } from '@ngrx/store';
+import { AppState } from '../shared/app.state';
 import {
   ProjectLoad,
   ProjectDelete,
@@ -12,12 +10,12 @@ import {
   ProjectEdit,
   ProjectEditCancel,
   ProjectAdding
-} from "./shared/project.actions";
+} from './shared/project.actions';
 
 @Component({
   // selector: 'app-projects',
-  templateUrl: "./projects.component.html",
-  styleUrls: ["./projects.component.css"]
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
   processing$: Observable<boolean>;

@@ -11,8 +11,8 @@ import {
   ProjectSaveSuccess,
   ProjectSaveFail,
   ProjectEdit
-} from "./project.actions";
-import { Project } from "./project.model";
+} from './project.actions';
+import { Project } from './project.model';
 
 export interface ProjectState {
   data: Project[];
@@ -25,7 +25,7 @@ export interface ProjectState {
 const initialState: ProjectState = {
   data: [],
   processing: false,
-  error: "",
+  error: '',
   editingProject: undefined,
   addingProject: undefined
 };
@@ -39,7 +39,7 @@ export function projectsReducer(
       return {
         data: [],
         processing: true,
-        error: "",
+        error: '',
         editingProject: undefined,
         addingProject: undefined
       };
@@ -48,7 +48,7 @@ export function projectsReducer(
       return {
         data: action.payload,
         processing: false,
-        error: "",
+        error: '',
         editingProject: undefined,
         addingProject: undefined
       };
@@ -57,7 +57,7 @@ export function projectsReducer(
       return {
         data: state.data,
         processing: false,
-        error: "",
+        error: '',
         editingProject: state.editingProject,
         addingProject: action.payload as Project
       };
@@ -66,7 +66,7 @@ export function projectsReducer(
       return {
         data: state.data,
         processing: false,
-        error: "",
+        error: '',
         editingProject: state.editingProject,
         addingProject: undefined
       };
@@ -75,7 +75,7 @@ export function projectsReducer(
       return {
         data: state.data,
         processing: false,
-        error: "",
+        error: '',
         editingProject: action.payload as Project,
         addingProject: undefined
       };
@@ -84,7 +84,7 @@ export function projectsReducer(
       return {
         data: state.data,
         processing: false,
-        error: "",
+        error: '',
         editingProject: undefined,
         addingProject: undefined
       };
@@ -93,15 +93,15 @@ export function projectsReducer(
       return {
         data: state.data,
         processing: true,
-        error: "",
+        error: '',
         editingProject: state.editingProject,
         addingProject: state.addingProject
       };
     }
     case ProjectActionTypes.SaveSuccess: {
-      let project: Project = action.payload;
+      const project: Project = action.payload;
       let projects: Project[];
-      let isUpdate = state.data.some(p => p.id == project.id);
+      const isUpdate = state.data.some(p => p.id === project.id);
 
       if (isUpdate) {
         projects = state.data.map(project => {
@@ -110,14 +110,14 @@ export function projectsReducer(
             : project;
         });
       } else {
-        //insert
+        // insert
         projects = [...state.data, project];
       }
 
       return {
         data: projects,
         processing: false,
-        error: "",
+        error: '',
         editingProject: undefined,
         addingProject: undefined
       };
@@ -126,7 +126,7 @@ export function projectsReducer(
       return {
         data: state.data,
         processing: true,
-        error: "",
+        error: '',
         editingProject: undefined,
         addingProject: undefined
       };
@@ -135,7 +135,7 @@ export function projectsReducer(
       return {
         data: state.data.filter(project => project.id !== action.payload.id),
         processing: false,
-        error: "",
+        error: '',
         editingProject: undefined,
         addingProject: undefined
       };
@@ -157,12 +157,12 @@ export function projectsReducer(
   }
 }
 
-import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-import { Action } from "@ngrx/store";
-import { Actions, Effect, ofType } from "@ngrx/effects";
-import { ProjectService } from "./project.service";
-import { switchMap, catchError, map, mergeMap } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { Action } from '@ngrx/store';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { ProjectService } from './project.service';
+import { switchMap, catchError, map, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class ProjectEffects {

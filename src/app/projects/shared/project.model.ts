@@ -3,7 +3,7 @@ export class Project {
   name: string;
   description: string;
   editing: boolean;
-  imageUrl = 'https://placeimg.com/500/300/arch/' + (Math.floor(Math.random() * 100) + 20);
+  imageUrl = 'https://placeimg.com/500/300/arch/1';
   contractTypeId: number;
   isActive: boolean;
   contractSignedOn: Date;
